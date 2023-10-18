@@ -1,0 +1,26 @@
+cors package:
+
+This is typically used in a Node.js application, often in combination with Express.js, to enable Cross-Origin Resource Sharing (CORS). 
+
+const cors = require('cors');
+
+app.use(cors());
+
+To summary, by adding app.use(cors()); to your code, you are allowing your server to respond to requests from different origins (domains) while ensuring that your server can enforce the appropriate CORS policies. This is important for web security, especially when your server needs to interact with resources from various sources or serve content to different web applications.
+
+--------------------------------------------------------------------------------------------
+
+app.use(express.json())
+
+The code app.use(express.json()) is typically used in a Node.js application with the Express.js framework to enable parsing of JSON data from incoming HTTP requests. Here's a brief explanation:
+
+express.json(): 
+This is a built-in middleware provided by Express.js. It is used to parse JSON data from the request body. When a client sends data to your server through an HTTP request with a "Content-Type" header set to "application/json," this middleware parses the JSON data and makes it accessible as a JavaScript object in your request handler.
+
+app.use(...): 
+This line adds the express.json() middleware to your Express.js application. It means that for any incoming request, if the request body contains JSON data, the middleware will automatically parse it and make it available as req.body in your request handling functions.
+
+In summary, app.use(express.json()) is essential when you want your Express.js application to accept and work with JSON data sent by clients, allowing you to process and manipulate that data within your server-side code. This is commonly used when building APIs or web applications that communicate with JSON data.
+
+--------------------------------------------------------------------------------------------
+

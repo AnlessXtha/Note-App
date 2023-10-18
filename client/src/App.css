@@ -1,42 +1,31 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+@font-face {
+  font-family: "Spacegrotesk";
+  src: url("./Fonts/SpaceGrotesk-Regular.ttf");
+}
+@font-face {
+  font-family: "Lato-Regular";
+  src: url("./Fonts/Lato-Regular.ttf");
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.bgImg {
+  background-image: url("./Images/bg2.jpg");
+  background-size: cover;
+  background-attachment: fixed;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.spacegrotesk {
+  font-family: "Spacegrotesk";
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.lato {
+  font-family: "Lato-Regular";
 }
 
-.card {
-  padding: 2em;
+.hj{
+  transition: all .14s ease-in-out; 
 }
 
-.read-the-docs {
-  color: #888;
+  
+.hj:hover { 
+  transform: scale(1.1); 
 }

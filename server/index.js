@@ -14,7 +14,7 @@ app.use(express.json())
 //     res.send('Notes App')
 // })
 
-app.use('/api',note)
+app.use('/api/v1',note)
 
 const port = process.env.PORT || 3000
 

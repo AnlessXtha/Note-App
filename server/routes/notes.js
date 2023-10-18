@@ -15,7 +15,7 @@ router.route('/getnotes').get(getAllNotes)
 
 router.route('/:id')
     .get(getNote)
-    .get(deleteNote)
-    .get(updateNote)
+    .delete(deleteNote)
+    .patch(updateNote)
 
 module.exports = router

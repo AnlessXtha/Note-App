@@ -64,6 +64,7 @@ const updateNote = async (req, res) => {
             new: true,
             runValidators: true,
         })
+        return res.json({ status: "success", message: "The note has been successfully edited" })
 
     } catch (error) {
         return res.json({ status: "error", message: "There is an error" })

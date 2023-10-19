@@ -4,7 +4,6 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const AddNote = () => {
-
     const [note, setNote] = useState("")
     const {id}= useParams()
     const [title, setTitle] = useState("")
@@ -18,14 +17,14 @@ const AddNote = () => {
 
     const SubmitNote = async (e) => {
         e.preventDefault()
-        if (!note) {
+        if (!note || !title) {
             toast.error('Please fill all the fields');
         } else {
             if(id){
                 EditNote()
             }
             else{
-                const response = await fetch("http://localhost:1447/api/notes/create", {
+                const response = await fetch("http://localhost:3000/api/v1/notes/create", {
                     method: "POST",
                     //sends the data in json format
                     headers: {
@@ -43,18 +42,18 @@ const AddNote = () => {
                     toast.success(data.message)
                     setNote("")
                     setTitle("")
+                    navigate("/")
                 } else {
                     toast.error(data.message)
                 }
             }
-            
         }
     }
     
 
     const GetCurrentNote = async () => {
     
-        const response = await fetch(`http://localhost:1447/api/getnotes/${id}`, {
+        const response = await fetch(`http://localhost:3000/api/v1/${id}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
@@ -70,8 +69,8 @@ const AddNote = () => {
         }
     }
 
-    const EditNote = async (userId) => {
-        const response = await fetch(`http://localhost:1447/api/notes/update/${id}`, {
+    const EditNote = async () => {
+        const response = await fetch(`http://localhost:3000/api/v1/${id}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json'
@@ -84,6 +83,7 @@ const AddNote = () => {
         const answer = await response.json();
         if (answer.status === "success") {
             toast.success(answer.message)
+            navigate("/")
         }
         else {
             toast.error("There was an error")
